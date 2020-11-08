@@ -4,6 +4,7 @@ Think of this challenge as an opportunity to show us what “good” looks like 
 way to showcase your skills.
 
 #### Here are some tips and guidelines:
+```
 ● We don’t expect you to spend more than 2-3 hours on this challenge
 ● If you don’t have time to fully complete the challenge, please still send it in and
 indicate what your next steps would be. Remember to try to solve the hardest
@@ -16,6 +17,7 @@ problems first.
 challenge and how you verify the validity of your solution.
 ● We should be able to run your code without any crazy steps
 ● Secret tip: Make use of the sample data ;)
+```
 
 ### Problem: Martian Robots
 #### The Problem
@@ -27,11 +29,12 @@ A robot position consists of a grid coordinate (a pair of integers: x-coordinate
 y-coordinate) and an orientation (N, S, E, W for north, south, east, and west).
 A robot instruction is a string of the letters “L”, “R”, and “F” which represent, respectively, the
 #### instructions:
+```
 ● Left: the robot turns left 90 degrees and remains on the current grid point.
 ● Right: the robot turns right 90 degrees and remains on the current grid point.
 ● Forward: the robot moves forward one grid point in the direction of the current
 orientation and maintains the same orientation.
-
+```
 The direction North corresponds to the direction from grid point (x, y) to grid point (x, y+1).
 There is also a possibility that additional command types may be required in the future and
 provision should be made for this.
