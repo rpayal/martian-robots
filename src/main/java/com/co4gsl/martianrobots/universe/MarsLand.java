@@ -1,6 +1,7 @@
 package com.co4gsl.martianrobots.universe;
 
 public class MarsLand {
+
     private Coordinates topRightCoordinates = new Coordinates(0, 0);
     private Coordinates bottomLeftCoordinates = new Coordinates(0, 0);
 
