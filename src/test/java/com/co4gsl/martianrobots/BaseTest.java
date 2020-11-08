@@ -1,5 +1,6 @@
 package com.co4gsl.martianrobots;
 
+import com.co4gsl.martianrobots.command.ICommand;
 import com.co4gsl.martianrobots.direction.IDirection;
 import com.co4gsl.martianrobots.robot.Robot;
 import com.co4gsl.martianrobots.universe.Coordinates;
@@ -11,4 +12,5 @@ public abstract class BaseTest {
     protected IDirection direction;
     protected Coordinates coordinates = new Coordinates(2, 2);
     protected Robot robot;
+    protected ICommand command;
 }

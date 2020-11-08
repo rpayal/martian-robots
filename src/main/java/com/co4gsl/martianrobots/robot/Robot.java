@@ -1,12 +1,16 @@
 package com.co4gsl.martianrobots.robot;
 
+import com.co4gsl.martianrobots.command.ICommand;
 import com.co4gsl.martianrobots.direction.IDirection;
 import com.co4gsl.martianrobots.exception.RobotOutOfBoundsException;
 import com.co4gsl.martianrobots.universe.Coordinates;
 import com.co4gsl.martianrobots.universe.MarsLand;
-import lombok.*;
+import lombok.Getter;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
-import java.util.Optional;
+import java.util.List;
 
 @Setter
 @Getter
@@ -48,8 +52,13 @@ public class Robot {
         if (! getMarsland().hasWithinBounds(getCurrentCoordinates())) {
             getCurrentDirection().moveBackward(this);
             this.setRobotLost(true);
-//            marsland.dropScent(this.currentCoordinates);
-            throw new RobotOutOfBoundsException();
+            marsland.dropScent(this.currentCoordinates);
+            throw new RobotOutOfBoundsException("Robot {" + System.identityHashCode(this) + "} Jumped of the MarsLand");
         }
+    }
+
+    public void executeCommandList(List<ICommand> commands) throws RobotOutOfBoundsException {
+        for (ICommand command : commands)
+            command.execute(this);
     }
 }
