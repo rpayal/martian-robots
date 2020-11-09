@@ -45,7 +45,7 @@ class MartianRobotsIntegrationTest {
 	public void givenResourceCommandData_whenRobotsLands_thenExpectedResponse() throws Exception {
 		StringBuilder expectedResponse = new StringBuilder();
 		expectedResponse.append("Sample Input\n5 3\n1 1 E\nRFRFRFRF\n3 2 N\nFRRFLLFFRRFLL\n0 3 W\nLLFFFLFLFL\n0 3 W\nLLFFFLLFL\n");
-		expectedResponse.append("\nOutput\n1 1 E\n3 3 N LOST\n3 3 N LOST\n2 3 S\n");
+		expectedResponse.append("\nOutput\n1 1 E\n3 3 N LOST\n2 3 S\n2 3 S\n");
 
 		HttpEntity<String> entity = new HttpEntity<String>(null, headers);
 

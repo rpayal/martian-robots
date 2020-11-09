@@ -21,4 +21,8 @@ public class MarsLand {
     public void dropScent(Coordinates coordinatesToSprayScent) {
         scentedCoordinates.add(coordinatesToSprayScent);
     }
+
+    public List<Coordinates> getScentedCoordinates() {
+        return scentedCoordinates;
+    }
 }

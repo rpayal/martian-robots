@@ -40,25 +40,29 @@ public class Robot {
         checkPosition();
     }
 
+    public void executeCommandList(List<ICommand> commands) throws RobotOutOfBoundsException {
+        for (ICommand command : commands)
+            command.execute(this);
+    }
+
     public String currentPosition() {
         String checkIfLost = this.isRobotLost() ? " " + POSITION_LOST : "";
         return getCurrentCoordinates().getXCoordinate() + " "
                 + getCurrentCoordinates().getYCoordinate() + " "
-                + Character.toString(getCurrentDirection().getClass().getSimpleName().charAt(0))
+                + getCurrentDirection().getClass().getSimpleName().charAt(0)
                 + checkIfLost;
     }
 
     private void checkPosition() throws RobotOutOfBoundsException {
         if (! getMarsland().hasWithinBounds(getCurrentCoordinates())) {
-            getCurrentDirection().moveBackward(this);
-            this.setRobotLost(true);
-            marsland.dropScent(this.currentCoordinates);
-            throw new RobotOutOfBoundsException("Robot {" + System.identityHashCode(this) + "} Jumped of the MarsLand");
+            this.getCurrentDirection().moveBackward(this);
+            if (this.marsland.getScentedCoordinates().contains(this.getCurrentCoordinates())) {
+                System.out.println("MarsLand coordinate {"+ this.currentCoordinates +"} is already scented by previous robot.");
+            } else {
+                this.setRobotLost(true);
+                marsland.dropScent(this.currentCoordinates);
+                throw new RobotOutOfBoundsException("Robot {" + System.identityHashCode(this) + "} Jumped of the MarsLand");
+            }
         }
-    }
-
-    public void executeCommandList(List<ICommand> commands) throws RobotOutOfBoundsException {
-        for (ICommand command : commands)
-            command.execute(this);
     }
 }

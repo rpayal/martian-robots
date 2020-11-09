@@ -1,12 +1,14 @@
 package com.co4gsl.martianrobots.universe;
 
 import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
-@AllArgsConstructor
 @Setter
 @Getter
+@EqualsAndHashCode
+@AllArgsConstructor
 public class Coordinates {
     private int xCoordinate;
     private int yCoordinate;
